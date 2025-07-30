@@ -522,61 +522,6 @@ for (const urlPutUser of ['https://petstore.swagger.io/v2/pet']) {
 }
 
 
-/*for (const urlPutPet of ['https://petstore.swagger.io/v2/pet']) {
-    test(`PUT pet ${urlPutPet}`, /*{
-        tag: '@apiGetStore'},*/
-        /*async ({ request }) => {
-
-            //Allure settings
-            await allure.epic('API');
-            await allure.story('put');
-            await allure.label('owner', 'Me');
-            await allure.displayName(`PUT pet запрос ${urlPutPet}`);
-            await allure.severity('critical');
-            await allure.suite("pet");
-
-            // Проверки
-            const requestBody = {
-                id: 9223372036854754000,
-                category: {
-                    id: 0,
-                    name: "string"
-                },
-                name: "doggie",
-                photoUrls: [
-                    "string"
-                ],
-                tags: [
-                    {
-                        "id": 0,
-                        "name": "string"
-                    }
-                ],
-                status: "available"
-            };
-
-            const response = await request.put(urlPutPet, {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                data: JSON.stringify(requestBody)
-            });
-
-            // Проверки
-            expect(response.status()).toBe(200);
-            expect(response.headers()['content-type']).toContain('application/json');
-
-            const responseData = await response.json();
-            //expect(responseData.id).toBeGreaterThan(0);
-            expect(responseData.name).toBe('doggie');
-            //console.log('Full response:', responseData);
-        }
-
-    )
-}*/
-
-
 for (const urlDeletePet of ['https://petstore.swagger.io/v2/pet/2']) {
     test(`DEL pet ${urlDeletePet}`, /*{
         tag: '@apiGetStore'},*/
@@ -615,8 +560,8 @@ for (const urlDeletePet of ['https://petstore.swagger.io/v2/pet/2']) {
 }
 
 
-for (const urlDeleteStore of ['https://petstore.swagger.io/v2/order/5',
-    'https://petstore.swagger.io/v2/order/1']) {
+for (const urlDeleteStore of ['https://petstore.swagger.io/v2/order/7576386026739276000',
+    'https://petstore.swagger.io/v2/order/10']) {
     test(`DEL store ${urlDeleteStore}`, 
         async ({ request }) => {
 
@@ -643,18 +588,18 @@ for (const urlDeleteStore of ['https://petstore.swagger.io/v2/order/5',
             console.log(response);
 
             const responseData = await response.json();
-            if (urlDeleteStore === 'https://petstore.swagger.io/v2/order/5') {
+            if (urlDeleteStore === 'https://petstore.swagger.io/v2/order/7576386026739276000') {
                 expect(responseData).toEqual({
                     code: 200,
                     type: 'unknown',
-                    message: '5',
+                    message: '7576386026739276000',
                 });
             }
-            else if (urlDeleteStore === 'https://petstore.swagger.io/v2/order/1') {
+            else if (urlDeleteStore === 'https://petstore.swagger.io/v2/order/10') {
                 expect(responseData).toEqual({
                     code: 200,
                     type: 'unknown',
-                    message: '1',
+                    message: '10',
                 });
             }
         }
@@ -691,6 +636,7 @@ for (const urlDeleteUser of ['https://petstore.swagger.io/v2/user/user', 'https:
             
             if (urlDeleteUser === 'https://petstore.swagger.io/v2/user/user') {
                 test.skip()
+                const responseData = await response.json();
                     expect(responseData).toEqual({
                     code: 200,
                     type: 'unknown',
