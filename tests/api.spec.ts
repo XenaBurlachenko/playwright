@@ -560,6 +560,7 @@ for (const urlDeletePet of ['https://petstore.swagger.io/v2/pet/2']) {
 }
 
 
+//тесты падают из-за невалидных ID. Стандартные варианты {0,1,2,3,4,5 и т.д.} не работают. ID из документации 7576386026739276000 тоже даёт падение.
 for (const urlDeleteStore of ['https://petstore.swagger.io/v2/order/7576386026739276000',
     'https://petstore.swagger.io/v2/order/10']) {
     test(`DEL store ${urlDeleteStore}`, 
